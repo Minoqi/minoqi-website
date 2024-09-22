@@ -1,7 +1,7 @@
 ---
 title: (Partially) Recreating Genshin Impacts Enemy AI w/ State Machines in Unity
 published: 2022-05-05
-tags: [Devlog, AI]
+tags: [Devlog, AI, Unity]
 category: ''
 draft: false
 ---
@@ -194,4 +194,5 @@ private void TakeDamage(EnemyStateManager enemy)
 
 ## References
 [Genshin Impact GDC Talk](https://gdcvault-com.cobalt.champlain.edu/play/1027347/-Genshin-Impact-Building-a)
+
 [Spiderman GDC Talk](https://gdcvault-com.cobalt.champlain.edu/play/1025828/-Marvel-s-Spider-Man)
