@@ -1,7 +1,7 @@
 # About
-This is the demo site for [Fuwari](https://github.com/saicaca/fuwari).
+Hello! My names Minoqi, also known as [Freelance Felix](https://freelancefelix.com), welcome to my blog! I primarily post game programming tutorials and devlogs, with the occassional random topic.
 
-::github{repo="saicaca/fuwari"}
+::github{repo="minoqi/minoqi-website"}
 
 > ### Sources of images used in this site
 > - [Unsplash](https://unsplash.com/)
