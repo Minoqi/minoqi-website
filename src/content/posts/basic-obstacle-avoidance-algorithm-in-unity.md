@@ -1,6 +1,6 @@
 ---
 title: Basic Obstalce Avoidance Algorithm in Unity
-published: 2023-06-27
+published: 2022-01-31
 description: This post demonstrates how to include embedded video in a blog post.
 tags: []
 category: ''

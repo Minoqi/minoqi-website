@@ -1,6 +1,6 @@
 ---
 title: 2D Flocking Algorithm in Unity
-published: 2023-07-11
+published: 2022-02-14
 description: A simple example of a Markdown blog post.
 tags: []
 category: ''

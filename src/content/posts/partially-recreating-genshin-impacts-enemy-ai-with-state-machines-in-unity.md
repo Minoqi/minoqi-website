@@ -1,6 +1,6 @@
 ---
 title: (Partially) Recreating Genshin Impacts Enemy AI w/ State Machines in Unity
-published: 2022-06-27
+published: 2022-05-05
 tags: []
 category: ''
 draft: true
