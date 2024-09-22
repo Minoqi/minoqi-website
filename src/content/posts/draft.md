@@ -20,3 +20,6 @@ tags: [Markdown, Blogging, Demo]
 category: Examples
 draft: false
 ---
+```
+
+This is an edit of this draft for a proof of concept
