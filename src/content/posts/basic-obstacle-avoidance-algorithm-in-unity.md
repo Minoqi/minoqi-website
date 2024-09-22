@@ -1,9 +1,9 @@
 ---
 title: Basic Obstalce Avoidance Algorithm in Unity
 published: 2022-01-31
-description: This post demonstrates how to include embedded video in a blog post.
+description: A basic 3D obstacle avoidance algorithm in Unity
 tags: [Devlog, AI, Unity]
-category: ''
+category: 'College'
 draft: false
 ---
 

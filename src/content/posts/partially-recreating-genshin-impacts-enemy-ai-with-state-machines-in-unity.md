@@ -1,8 +1,9 @@
 ---
 title: (Partially) Recreating Genshin Impacts Enemy AI w/ State Machines in Unity
 published: 2022-05-05
+description: A partial recreation of Genshin Impacts enemy AI using state machines
 tags: [Devlog, AI, Unity]
-category: ''
+category: 'College'
 draft: false
 ---
 

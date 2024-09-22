@@ -1,9 +1,9 @@
 ---
 title: 2D Flocking Algorithm in Unity
 published: 2022-02-14
-description: A simple example of a Markdown blog post.
+description: 2D Flocking Algorithm made in Unity
 tags: [Devblog, Unity, AI, Algorithm]
-category: ''
+category: 'College'
 draft: false
 ---
 
