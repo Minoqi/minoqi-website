@@ -3,7 +3,7 @@ title: New Labels, V1.5, V2.0 Updates, Parers Addon Updates
 published: 2024-08-04
 description: ''
 image: ''
-tags: [Devlog]
+tags: [Devblog]
 category: 'Dialogue Forge'
 draft: false 
 lang: ''

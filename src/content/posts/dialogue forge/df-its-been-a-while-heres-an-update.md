@@ -3,7 +3,7 @@ title: It's Been a While, Here's an Update
 published: 2024-07-04
 description: ''
 image: ''
-tags: [Devlog]
+tags: [Devblog]
 category: 'Dialogue Forge'
 draft: false 
 lang: ''

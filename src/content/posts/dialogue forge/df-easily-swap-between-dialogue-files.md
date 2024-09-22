@@ -3,7 +3,7 @@ title: Easily Swap Between Dialogue Files
 published: 2024-07-20
 description: ''
 image: ''
-tags: [Devlog]
+tags: [Devblog]
 category: 'Dialogue Forge'
 draft: false 
 lang: ''

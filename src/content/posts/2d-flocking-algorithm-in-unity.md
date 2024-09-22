@@ -2,7 +2,7 @@
 title: 2D Flocking Algorithm in Unity
 published: 2022-02-14
 description: 2D Flocking Algorithm made in Unity
-tags: [Devblog, Unity, AI, Algorithm]
+tags: [Devblog, Unity, AI, Algorithm, Game Programming]
 category: 'College'
 draft: false
 ---

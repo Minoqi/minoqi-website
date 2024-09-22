@@ -3,7 +3,7 @@ title: Dialogue Forge V1.0 Coming Soon!
 published: 2024-07-25
 description: ''
 image: ''
-tags: [Devlog]
+tags: [Devblog]
 category: 'Dialogue Forge'
 draft: false 
 lang: ''

@@ -2,7 +2,7 @@
 title: Basic Obstalce Avoidance Algorithm in Unity
 published: 2022-01-31
 description: A basic 3D obstacle avoidance algorithm in Unity
-tags: [Devlog, AI, Unity]
+tags: [Devblog, AI, Unity, Game Programming]
 category: 'College'
 draft: false
 ---
@@ -18,8 +18,6 @@ I made an obstacle avoidance algorithm for my Advanced Game AI class. By using a
 ![Gif showing off the FOV tool in the inspector](src/assets/images/unity_obstacle_avoidance_basic/UnityBasicObstacleAvoidanceFOVDemo.gif)
 
 Originally when I was making the obstacle avoidance algorithm, I was using a set number of raycasts surrounding the object as an obstacle detector. However, I had recently made a field-of-view (fov) tool for my capstone (game production) class that I thought would work well for this algorithm.
-
-GIF
 
 This system has multiple benefits. Instead of being limited to a set number of raycasts, I was able to make it so it'd first check if an obstacle was within range of the agent at all, and if it was from there shoot a raycast from the agent to the obstacle to then use to calculate the math for the algorithm. This increases it's accuracy while also possibly saving on performance costs. Based on my research, raycasts are quite cost expensive while colliders aren't always as cost expensive. For example, a primitive collider (box, sphere etc.) is much more cost efficient than using raycasts since they're not really meshes but mathematical computations making it easier to verify intersections on Unity's end. Now my fov tool doesn't use a primitive collider, it uses a mesh collider which can get cost expensive very easily. But, I'm using a convex mesh collider, which helps in cost, plus the mesh itself is a very simple shape and not a very complex one. Based on this, it seems like this method could possibly be more cost efficient overall, mainly for huge games with hundreds or thousands of agents. 
 

@@ -3,7 +3,7 @@ title: Creating a Dialogue Tool in Unity
 published: 2021-12-05
 description: 'An overview of a dialogue tool I made for a project in Unity'
 image: ''
-tags: [Devlog, Unity]
+tags: [Devblog, Unity]
 category: 'College'
 draft: false 
 ---
