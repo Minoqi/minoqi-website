@@ -9,6 +9,8 @@ draft: false
 lang: ''
 ---
 
+![](src/assets/images/GodotNetworkingDemo.gif)
+
 Recently I’ve been hard at work learning how to use Godots multiplayer system. Having little to no networking experience prior, I found a lot of the either too short and quick to understand what’s happening enough to then mess with it on my own, or I was missing information on specific pieces I needed.
 
 When I first tried reading Godots documentation, I got a bit lost. But after watching a pretty comprehensive video by [FinePointCGI](https://www.youtube.com/c/finepointcgi), and doing lots of research, I finally started to wrap my head around the terms enough to take another crack at understanding Godots documentation.
@@ -23,7 +25,9 @@ My goal is to make a system that has a waiting lobby list with a waiting room pl
 
 I’ve decided to turn what I learn into a blog post for each part to help add to the already limited resources on Godot 4s multiplayer system.
 
-EDIT: I'll probably change this to make one huge post with everything I know about Godots multiplayer
+:::note[EDIT]
+I'll probably change this to make one huge post with everything I know about Godots multiplayer
+:::
 
 # Initialization
 This step requires just 3 scenes.

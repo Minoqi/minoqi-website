@@ -1,6 +1,6 @@
 ---
-title: Draft Example
-published: 2022-07-01
+title: (Partially) Recreating Genshin Impacts Enemy AI w/ State Machines in Unity
+published: 2022-06-27
 tags: []
 category: ''
 draft: true

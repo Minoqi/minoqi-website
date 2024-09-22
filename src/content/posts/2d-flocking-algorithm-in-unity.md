@@ -1,6 +1,6 @@
 ---
-title: Markdown Example
-published: 2023-10-01
+title: 2D Flocking Algorithm in Unity
+published: 2023-07-11
 description: A simple example of a Markdown blog post.
 tags: []
 category: ''
