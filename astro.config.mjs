@@ -19,8 +19,6 @@ import {parseDirectiveNode} from "./src/plugins/remark-directive-rehype.js";
 import { remarkReadingTime } from "./src/plugins/remark-reading-time.mjs"
 import {remarkExcerpt} from "./src/plugins/remark-excerpt.js";
 
-import vercel from '@astrojs/vercel/serverless';
-
 const oklchToHex = (str) => {
   const DEFAULT_HUE = 250
   const regex = /-?\d+(\.\d+)?/g
@@ -33,7 +31,7 @@ const oklchToHex = (str) => {
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://minoqi.vercel.app/",
+  site: "https://minoqi.github.io/minoqi-website/",
   base: "/",
   trailingSlash: "always",
 
@@ -135,7 +133,4 @@ export default defineConfig({
       },
     },
   },
-
-  output: "server",
-  adapter: vercel(),
 })
