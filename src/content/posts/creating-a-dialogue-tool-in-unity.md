@@ -5,7 +5,7 @@ description: 'AN overview of a dialogue tool I made for a project in Unity'
 image: ''
 tags: [Devlog, Unity]
 category: ''
-draft: true 
+draft: false 
 ---
 
 ![](src/assets/images/UnityDialogueToolCurrentState.png)
