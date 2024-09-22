@@ -19,7 +19,7 @@ import {parseDirectiveNode} from "./src/plugins/remark-directive-rehype.js";
 import { remarkReadingTime } from "./src/plugins/remark-reading-time.mjs"
 import {remarkExcerpt} from "./src/plugins/remark-excerpt.js";
 
-import { vercel } from "@astrojs/vercel";
+import vercelServerless from '@astrojs/vercel/serverless';
 
 const oklchToHex = (str) => {
   const DEFAULT_HUE = 250
@@ -137,5 +137,5 @@ export default defineConfig({
   },
 
   output: "server",
-  adapter: vercel()
+  adapter: vercelServerless()
 })
