@@ -33,7 +33,7 @@ const oklchToHex = (str) => {
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://minoqi.github.io/minoqi-website/",
+  site: "https://minoqi.vercel.app/",
   base: "/",
   trailingSlash: "always",
 
