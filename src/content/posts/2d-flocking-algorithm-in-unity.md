@@ -2,165 +2,314 @@
 title: 2D Flocking Algorithm in Unity
 published: 2022-02-14
 description: A simple example of a Markdown blog post.
-tags: []
+tags: [Devblog, Unity, AI, Algorithm]
 category: ''
-draft: true
+draft: false
 ---
 
-# An h1 header
+![](src/assets/images/unity_2d_flocking_algorithm/Unity2DFlockingAlgorithmDemoGIF.gif)
 
-Paragraphs are separated by a blank line.
+I made a 2D flocking algorithm for my Advanced Game AI class, but the code can be easily converted to work in 3D as well. Using a mix of the 3 main behaviors in flocking (cohesion, alignment and avoidance), a few extra behaviors including group flocking and obstacle avoidance, plus composite to put it all together, we get a decently expandable flocking algorithm. Above is an example of it in action, and at the bottom you can see an example of the flocks avoiding each other as well. You can access the code here.
 
-2nd paragraph. _Italic_, **bold**, and `monospace`. Itemized lists
-look like:
+---
 
-- this one
-- that one
-- the other one
+# Flock
 
-Note that --- not considering the asterisk --- the actual text
-content starts at 4-columns in.
+The `Flock.cs` script has two main functions, `Update()` and `GetNearbyObjects()`.
 
-> Block quotes are
-> written like so.
->
-> They can span multiple paragraphs,
-> if you like.
 
-Use 3 dashes for an em-dash. Use 2 dashes for ranges (ex., "it's all
-in chapters 12--14"). Three dots ... will be converted to an ellipsis.
-Unicode is supported. ☺
+***Update:*** Get all the data from the behaviors, use it to calculate the movement and tell the agent the final move value.
 
-## An h2 header
 
-Here's a numbered list:
+***GetNearbyObjects:*** Uses physics overlap circle to check for all other objects nearby.
 
-1. first item
-2. second item
-3. third item
+```csharp
+// Update is called once per frame
+// Unity Message | 0 references
+void Update()
+{
+    foreach (FlockAgent agent in agents)
+    {
+        List<Transform> context = GetNearbyObjects(agent);
 
-Note again how the actual text starts at 4 columns in (4 characters
-from the left side). Here's a code sample:
+        Vector2 move = behavior.CalculateMove(agent, context, this); // Run scriptable object to calculate move
+        move *= driveFactor; // For speedier movement
 
-    # Let me re-iterate ...
-    for i in 1 .. 10 { do-something(i) }
+        if (move.sqrMagnitude > squareMaxSpeed) // Don't pass max speed
+        {
+            move = move.normalized * maxSpeed;
+        }
 
-As you probably guessed, indented 4 spaces. By the way, instead of
-indenting the block, you can use delimited blocks, if you like:
-
-```
-define foobar() {
-    print "Welcome to flavor country!";
+        agent.Move(move);
+    }
 }
 ```
 
-(which makes copying & pasting easier). You can optionally mark the
-delimited block for Pandoc to syntax highlight it:
+```csharp
+private List<Transform> GetNearbyObjects(FlockAgent agent)
+{
+    List<Transform> context = new List<Transform>();
+    Collider2D[] contextColliders = Physics2D.OverlapCircleAll(agent.transform.position, neighborRadius);
 
-```python
-import time
-# Quick, count to ten!
-for i in range(10):
-    # (but not *too* quick)
-    time.sleep(0.5)
-    print i
+    foreach (Collider2D col in contextColliders)
+    {
+        if (col != agent.AgentCollider) // Not own collider
+        {
+            context.Add(col.transform);
+        }
+    }
+
+    return context;
+}
 ```
 
-### An h3 header
+---
 
-Now a nested list:
+# Behaviors
 
-1. First, get these ingredients:
+Flocking is made up of 3 behaviors: cohesion, alignment and avoidance. There's also composite which takes data from all 3 of these and calculates the final movement values. The 3 main behaviors are pretty similar code wise wise, mainly being that they all check to make sure there are neighbors, otherwise it'll just return nothing as well as checking to see if any special filtering was done (This is used for things like finding their own flock as well as obstacle avoidance).
 
-    - carrots
-    - celery
-    - lentils
+***Cohesion:*** Cohesion adds up all the positions and gets the average plus the offset.
 
-2. Boil some water.
+```csharp
+[CreateAssetMenu(menuName = "Flock/Behavior/Cohesion")]
+using UnityEngine;
+using System.Collections.Generic;
 
-3. Dump everything in the pot and follow
-    this algorithm:
+public class CohesionBehavior : FilteredFlockBehavior
+{
+    public override Vector3 CalculateMove(FlockAgent agent, List<Transform> context, Flock flock)
+    {
+        // If no neighbors, return zero
+        if (context.Count == 0 || filter.Filter(agent, context).Count == 0)
+        {
+            return Vector3.zero;
+        }
 
-        find wooden spoon
-        uncover pot
-        stir
-        cover pot
-        balance wooden spoon precariously on pot handle
-        wait 10 minutes
-        goto first step (or shut off burner when done)
+        // Add all points together and average
+        Vector3 cohesionMove = Vector3.zero;
+        List<Transform> filteredContext = null;
 
-    Do not bump wooden spoon or it will fall.
+        if (filter == null) // If not filtering, use original context list
+        {
+            filteredContext = context;
+        }
+        else
+        {
+            filteredContext = filter.Filter(agent, context);
+        }
 
-Notice again how text always lines up on 4-space indents (including
-that last line which continues item 3 above).
+        foreach (Transform item in filteredContext)
+        {
+            cohesionMove += (Vector3)item.position; // Add all points
+        }
+        cohesionMove /= filteredContext.Count; // Average point
 
-Here's a link to [a website](http://foo.bar), to a [local
-doc](local-doc.html), and to a [section heading in the current
-doc](#an-h2-header). Here's a footnote [^1].
+        // Create offset from agent position
+        cohesionMove -= (Vector3)agent.transform.position;
 
-[^1]: Footnote text goes here.
+        return cohesionMove;
+    }
+}
+```
 
-Tables can look like this:
+***Alignment:*** Alignment adds up all the directions the agents are facing and gets the average.
 
-size material color
+```csharp
+[CreateAssetMenu(menuName = "Flock/Behavior/Alignment")]
+public class AlignmentBehavior : FilteredFlockBehavior
+{
+    public override Vector3 CalculateMove(FlockAgent agent, List<Transform> context, Flock flock)
+    {
+        // if no neighbors, return current heading
+        if (context.Count == 0 || filter.Filter(agent, context).Count == 0)
+        {
+            return agent.transform.up;
+        }
+        
+        // Add all points together and average
+        Vector2 alignmentMove = Vector2.zero;
+        List<Transform> filteredContext = null;
+
+        if (filter == null) // If not filtering, use original context list
+        {
+            filteredContext = context;
+        }
+        else
+        {
+            filteredContext = filter.Filter(agent, context);
+        }
+
+        foreach (Transform item in filteredContext)
+        {
+            alignmentMove += (Vector2)item.transform.up; // Get direction facing
+        }
+
+        alignmentMove /= filteredContext.Count; // Average direction
+        return alignmentMove;
+    }
+}
+```
+
+***Avoidance:*** Avoidance calculates all the differences in positions between the agent and other objects surrounding it, which is then averaged by the number of things the agents avoiding.
+
+```csharp
+public override Vector CalculateMove(FlockAgent agent, List<Transform> context, Flock flock)
+{
+    // If no neighbors, return no adjustment
+    if (context.Count == 0 || filter.Filter(agent, context).Count == 0)
+    {
+        return Vector2.zero;
+    }
+
+    Vector avoidancemove = Vector2.zero;
+
+    int numAvoid = 8; // Number of boids to avoid
+    List<Transform> filteredContext = null;
+
+    if (filter == null) // If not filtering, use original context list
+    {
+        filteredContext = context;
+    }
+    else
+    {
+        filteredContext = filter.Filter(agent, context);
+    }
+
+    foreach (Transform item in filteredContext)
+    {
+        if (Vector2.SqrMagnitude(item.position - agent.transform.position) < flock.squareAvoidanceRadius)
+        {
+            Debug.Log(Vector2.SqrMagnitude(item.position - agent.transform.position));
+            numAvoider;
+            avoidanceMove += (Vector2)(agent.transform.position - item.position);
+        }
+    }
+    return avoidanceMove;
+}
+```
+
+***Composite:*** Composite takes all this data and calculates the movement off of it as well as the weight set to each behavior. There's also a check just to make sure the behavior doesn't exceed that amount of weight it should have.
+
+```csharp
+// Set up move
+Vector2 move = Vector2.zero;
+
+// Iterate through behaviors
+for (int i = 8; i < behaviors.Length; i++)
+{
+    Vector2 partialMove = behaviors[i].CalculateMove(agent, context, flock) * weights[i]; // Multiply each behavior by its weight
+    if (partialMove != Vector2.zero)
+    {
+        if (partialMove.sqrMagnitude > weights[i] * weights[i]) // Make sure it doesn’t exceed the weight
+        {
+            partialMove.Normalize();
+            partialMove *= weights[i];
+        }
+        move += partialMove;
+    }
+}
+
+return move;
+```
 
 ---
 
-9 leather brown
-10 hemp canvas natural
-11 glass transparent
+# Check for Specific Flock
 
-Table: Shoes, their sizes, and what they're made of
+To keep track of agents that are part of their flock, they just check all nearby objects and store all the ones that have the same flock type in a new list. Each agent gets designated a flock at the start of runtime through the Flock.cs script. The Flock.cs script is attached the an empty gameObject that holds all the flocks. The flock type is decided by whatever prefab you use in the Flock.cs script in the inspector.
 
-(The above is the caption for the table.) Pandoc also supports
-multi-line tables:
+```csharp
+[CreateAssetMenu(menuName = "Flock/Filter/Same Flock")]
+using UnityEngine;
+using System.Collections.Generic;
+
+public class SameFlockFilter : ContextFilter
+{
+
+    public override List<Transform> Filter(FlockAgent agent, List<Transform> originalList)
+    {
+
+        List<Transform> filtered = new List<Transform>();
+
+        foreach (Transform item in originalList) // Iterate through original list
+        {
+            FlockAgent itemAgent = item.GetComponent<FlockAgent>();
+            if (itemAgent != null && itemAgent.AgentFlock == agent.AgentFlock) // Make sure it's flock agent & in same flock
+            {
+                filtered.Add(item);
+            }
+        }
+
+        return filtered;
+    }
+}
+```
 
 ---
 
-keyword text
+# Obstacle Avoidance
+
+To avoid obstacles, there's a `Obstacle Avoidance Filter Scriptable Object`. The scriptable object has it so you can set what layer you want the flock to avoid, and the script will get a list of all objects on that layer based on objects nearby. From there this object is added to the `Avoidance Behavior Scriptable Object` where all the math happens.
+
+```csharp
+[CreateAssetMenu(menuName = "Flock/Filter/Obstacle Avoidance")]
+using UnityEngine;
+using System.Collections.Generic;
+
+public class ObstacleAvoidanceFilter : ContextFilter
+{
+    // Variables
+    public LayerMask layerToAvoid;
+
+    public override List<Transform> Filter(FlockAgent agent, List<Transform> originalList)
+    {
+        List<Transform> filtered = new List<Transform>();
+
+        foreach (Transform item in originalList) // Iterate through original list
+        {
+            if (layerToAvoid == (layerToAvoid | (1 << item.gameObject.layer))) // If it's on a layer to avoid, add to list
+            {
+                filtered.Add(item);
+            }
+        }
+
+        return filtered;
+    }
+}
+```
+
+You can see from the gif at the start of this devblog, the obstacle avoidance working for walls. Since it's based on layers, as long as you give each flock it's own layer you can make flocks avoid each other as well.
+
+![](src/assets/images/unity_2d_flocking_algorithm/Unity2DFlockingAlgorithmTighterDemo.gif)
 
 ---
 
-red Sunsets, apples, and
-other red or reddish
-things.
+# Inspector
 
-green Leaves, grass, frogs
-and other things it's
-not easy being.
+Lastly, through the inspector, the user can adjust a wide array of values for their flocks.
 
----
 
-A horizontal rule follows.
+`Behavior`: A composite behavior scriptable object that has all the behaviors you want the flock to take into account. The composite behavior has a list of all the behaviors and their weight values.
 
----
 
-Here's a definition list:
+`Starting Count`: Number of agents you want in the flock.
 
-apples
-: Good for making applesauce.
-oranges
-: Citrus!
-tomatoes
-: There's no "e" in tomatoe.
 
-Again, text is indented 4 spaces. (Put a blank line between each
-term/definition pair to spread things out more.)
+`Agent Density`: Used to calculate spawning.
 
-Here's a "line block":
 
-| Line one
-| Line too
-| Line tree
+`Drive Factor`: A value that gets multiplied to the movement to speed up the agent.
 
-and images can be specified like so:
 
-[//]: # (![example image]&#40;./demo-banner.png "An exemplary image"&#41;)
+`Max Speed`: Max speed the agent can go to after all the calculations have been done.
 
-Inline math equations go in like so: $\omega = d\phi / dt$. Display
-math should get its own line and be put in in double-dollarsigns:
 
-$$I = \int \rho R^{2} dV$$
+`Neighbor Radius`: How far the agent is checking for things.
 
-And note that you can backslash-escape any punctuation characters
-which you wish to be displayed literally, ex.: \`foo\`, \*bar\*, etc.
+
+`Avoidance Radius Multiplier`: Used to calculate avoidance.
+
+![](src/assets/images/unity_2d_flocking_algorithm/Unity2DFlockingAlgoFlockInpsector.png)
+
+![](src/assets/images/unity_2d_flocking_algorithm/Unity2dFlockingAlgoScriptable.png)
