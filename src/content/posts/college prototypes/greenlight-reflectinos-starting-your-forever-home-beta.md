@@ -25,7 +25,7 @@ There were a lot of really cool games shown off during the greenlight presentati
 
 Being told to make a prototype in 1 week for 3 weeks sounded really daunting and like it'd be rather difficult, but it ended up not being that stressful and difficult as I originally assumed. I think my team did a good job of keeping our prototypes for our games in scope. We were able to focus on what things we definitely needed to get into the prototype while also keeping a list of things that we'd like to add-on if we have time or if we were to be greenlit. I think I was also able to make good use of the concept art our artist made for us, since I think it helped other people (and those on the team) visualize the final idea for the game more. While it was hard to choose between our 3 games, Pogumono, Cat Mafia and Your Forever Home, I think in the end we chose the right game to go forward with. While Pogumono and Cat Mafia were really fun (I especially liked our Cat Mafia idea) the games felt a little too small for their to be enough work for a big team to do for a little over 2 months. We felt we might've ran out of things for people like the programmers or designers to do, so we decided to go with Your Forever Home since their was much more we could build upon in it. Since we also needed to have some sort of 3D aspect to the games in the end, we also thought that Cat Mafia wasn't a good fit since we think it fits best as a 2D game. While Pogumono probably could've worked in 3D, we think Your Forever Home was the best fit for the requirements and everyone was super into the game idea as well.
 
-![](src/assets/images/college_prototypes/PgoumonoItchioCover.png)
+![](src/assets/images/college_prototypes/CatMafiaItchioCover.png)
 *Art by Sarah Shaw*
 
 ---
