@@ -49,7 +49,7 @@ float MSin(float value)
 
 Our next method expanded on the first one by using Newton's Law of Universal Gravitation. 
 
-![alt text](../../assets/images/NewtosnLawOfUniversalGravity.png)
+![](src/assets/images/NewtosnLawOfUniversalGravity.png)
 
 While this allowed for more customization in how the planet orbits around the sun, we still ran into the same issue of not being able to move the planet somewhere else and have gravity update its orbit, so we scrapped this version as well.
 
@@ -73,7 +73,7 @@ void Orbit()
 
 # Orbit Using Pure Gravity Ver 1
 
-![alt text](../../assets/images/unity_pendulum/UnityOrbitPureV1.gif)
+![](src/assets/images/unity_pendulum/UnityOrbitPureV1.gif)
 
 We finally started to move on to making a system that purely used gravity to get the planets moving. We took the code from the previous example and tried using it as a basis for our new attempt. We got much closer in a way as it was being calculated based off of gravity so it could be moved in the editor, but it still wasn't quite right. The planets would go forward through the sun, and they didn't seem to properly come back around after a certain point.
 
@@ -106,11 +106,11 @@ void Integrator()
 
 # Orbite Using Pure Gravity Ver 2
 
-![alt text](../../assets/images/unity_pendulum/UnityPendulumDemoGIF.gif)
+![](src/assets/images/unity_pendulum/UnityPendulumDemoGIF.gif)
 
 Moving on to our final version, this was the closest we were able to get in time. Using Euler's method, we were able to get the planets moving completely based off of gravity and in an elliptical rotation. However the planet still went through the sun in the beginning until it was able to form an ellipse and it didn't rotate around in one place. It ended up looking more like an atom with the way it kept moving its rotation. While our system didn't work the way we wanted it to in the end, we did realize we accidently made a pendulum instead of a solar system orbit. While that wasn't out goal, it was an interesting outcome.
 
-![alt text](../../assets/images/unity_pendulum/UnityOrbitPureV2Formula.png)
+![](src/assets/images/unity_pendulum/UnityOrbitPureV2Formula.png)
 
 ```csharp
 public class OrbitForceGenerator : ForceGenerator2D
@@ -156,7 +156,7 @@ public class OrbitForceGenerator : ForceGenerator2D
 
 # Attempting to Add Moons
 
-![alt text](../../assets/images/unity_pendulum/UnityOrbitMoon.png)
+![](src/assets/images/unity_pendulum/UnityOrbitMoon.png)
 
 On top of planets orbiting in a solar system, we also wanted to add something else. One idea was asteroids that would knock the planets off course, but we also came up with the idea to spawn in random moons and once a planet got close enough it'd be pulled into the planet and start orbiting it. Since we had less than a day to try implementing this, it led to some interesting results.
 
