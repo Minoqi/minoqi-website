@@ -3,14 +3,13 @@ title: (Partially) Recreating Genshin Impacts Movement System Postmortem
 published: 2022-05-02
 description: 'The partial recreation of genshin impacts movement system in Unity'
 image: ''
-tags: [Postmortem]
+tags: [Postmortem, Genshin Impact]
 category: 'College'
 draft: false 
 lang: ''
 ---
 
-![](src/assets/images/unity_genshin_impact_movement_system/GIMSStatesGIF.gif)
-*Gameplay from Genshin Impact, Footage from Indie Waffles*
+![](src/assets/images/unity_genshin_impact_movement_system/GIMSStatesGIF.gif)*Gameplay from Genshin Impact, Footage from Indie Waffles*
 
 For my final project in portfolio, I wanted to follow this tutorial I had found online that went in depth to recreate the major part of Genshins movement system. While the tutorial is a "still-in-progress" series, the first part of it had finished which goes over the main chunk of the movement system (with the other parts focused on swimming and flying). While I don't mind coding movement in 2D games, I've never been quite amazing at it, especially in 3D games, so I thought Id' use this class and the tutorial as a chance to develop my skills when it comes to programming more gameplay type programming like movement. While I wasn't able to finish the entire series on time, I did only have half the time to finish this assignment since I switched to it partway through. Taking that into consideration I'm happy with what got developed in time and plan on finishing it in my free time.
 
@@ -201,4 +200,4 @@ Lastly, the style of coding this person has is rather different from my own. I'v
 
 ## References
 
-![Indie Waffles Genshin Impact Movement Tutorial Series](https://www.youtube.com/playlist?list=PL0yxB6cCkoWKuPoh_9dSvdItQENVx7YTW)
+[Indie Waffles Genshin Impact Movement Tutorial Series](https://www.youtube.com/playlist?list=PL0yxB6cCkoWKuPoh_9dSvdItQENVx7YTW)

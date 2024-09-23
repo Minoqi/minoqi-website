@@ -2,7 +2,7 @@
 title: (Partially) Recreating Genshin Impacts Enemy AI w/ State Machines in Unity
 published: 2022-05-05
 description: A partial recreation of Genshin Impacts enemy AI using state machines
-tags: [Devblog, AI, Unity, Game Programming]
+tags: [Devblog, AI, Unity, Game Programming, Genshin Impact]
 category: 'College'
 draft: false
 ---
@@ -18,6 +18,7 @@ For the final project for my advanced game AI I decided to recreate a simplified
 For this project, we were required to base it off of a GDC talk about AI. After looking through some talks I decided on the [Genshin Impact](https://gdcvault-com.cobalt.champlain.edu/play/1027347/-Genshin-Impact-Building-a) talk as well as the [Spiderman](https://gdcvault-com.cobalt.champlain.edu/play/1025828/-Marvel-s-Spider-Man) talk. I chose the Genshin Impact one as the system I'll be recreating as they went over the overall system they use so I was able to get a rough idea as to how it works. The Spiderman talk went more into depth in the system they use which is somewhat similar to Genshins, but I also liked how the Spiderman talk displayed debug information so you could see what the AI was doing. Due to time constraints, I decided to focus more on creating a simple finite state machine with an idle, walk, pre-attack, attack, hurt and death state for the enemies. From my understanding, Genshin uses a hierarchical state machine which controls all the AI in the game as well as a decision tree.
 
 ![Slide from my final presentation](src/assets/images/unity_genshin_ai_partial/UnityGenshinAISlideFinalPresentation.png)
+*Slide from my final presentation*
 
 ---
 
