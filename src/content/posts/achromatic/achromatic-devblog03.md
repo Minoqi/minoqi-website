@@ -28,9 +28,6 @@ Achromatic is a 3D psychological horror game for the PC where the player has to 
 One of the biggest issues when it came to programming that I faced was making the monster horse AI fun yet realistic. We went through multiple iterations, with the biggest being single raycasts and multiple raycasts before ending up on using a spherecast. 
 
 
-(For a quick overview reminder of the base system, I made an FOV tool which you can read about here. That tool allows the monster to know if the player is within his line of sight through the use of a trigger collider. From there the player will shoot raycasts/spherecasts to the monster and let's the monster know if it can see the player.)
-
-
 Initially we tried using a single raycast, and while it worked it did pose some issues. The big one being how finnicky it made the AI. Since it was only a single raycast (which is super thin), it wouldn't always be the most accurate. It was especially an issue since it prevented the player from being able to look around corners since the raycats would just barely hit the player despite the natural instinct to be that the monster shouldn't be able to see the player yet.
 
 ![](src/assets/images/achromatic/AchromaticSingleRaycast.png)
