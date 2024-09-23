@@ -1,7 +1,7 @@
 ---
 title: 'Your Forever Home Alpha Build & Our First QA'
 published: 2021-04-08
-description: ''
+description: 'The alpha build of Your Forever Home'
 image: ''
 tags: [Devblog]
 category: 'College'
