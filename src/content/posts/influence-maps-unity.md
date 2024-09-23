@@ -121,7 +121,6 @@ The last else statement has another if/else statement. Firstly it checks if the 
 public void CalculateNeighboringCells(Vector2Int centerCell, int affectedZone, int affectedValue)
 {
     // Variables
-
     Vector2Int currentLoc = new Vector2Int(0, 0);
 
     // Calculate neighbors
