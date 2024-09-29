@@ -2,7 +2,7 @@
 title: Basic Obstalce Avoidance Algorithm in Unity
 published: 2022-01-31
 description: A basic 3D obstacle avoidance algorithm in Unity
-tags: [Devblog, AI, Unity, Game Programming]
+tags: [Devblog, AI, Unity, Game Programming, Algorithm]
 category: 'College'
 draft: false
 ---
