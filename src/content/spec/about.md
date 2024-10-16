@@ -7,32 +7,37 @@ Currently working ony my first solo published game, ***The 10-Day Garden!*** Ori
 
 ---
 
-# Skills
+## Preferred Languages
+- GDScript
+    - My most used language currently
+    - Gets the job done
+    - Wish it had interfaces
 
-## Programming Languages
-### GDScript
-- My most used language currently
-- Gets the job done
-- Wish it had interfaces
+- C#
+    - One of my favorite languages
+    - Have only ever used it inside Unity
 
-### C#
-- One of my favorite languages
-- Have only ever used it inside Unity
-
-### C++
-- The first language I ever learned
-- Used it a lot in college but have gotten rusty after not using it for so long :<
+## Other Known Languages
+- C++
+    - The first language I ever learned
+    - Used it a lot in college but have gotten rusty after not using it for so long :<
 
 ## Engines
-### Unity
-- The engine I used all throughout college and then some
-- Still pretty comfortable in it and plan to do personal projects in it again when Unity 6 comes out
+- Unity
+    - The engine I used all throughout college and then some
+    - Still pretty comfortable in it and plan to do personal projects in it again when Unity 6 comes out
 
-### Godot
-- The third engine I ever learned
-- Picked it up fast since I needed it for my work
-- Currently my most used engine due to popular demand from my clients
+- Godot
+    - The third engine I ever learned
+    - Picked it up fast since I needed it for my work
+    - Currently my most used engine due to popular demand from my clients
 
-### Unreal Engine
-- Little experience in it besides a college project
-- Plan to work on learning it more for 2025
+- Unreal Engine
+    - Little experience in it besides a college project
+    - Plan to work on learning it more for 2025
+
+## Education
+- Konkuk University (걱국 대학)
+    - Studied abroad in a korean language exchange program for 6 months
+
+- Champlain College (Bachelors of Science in Game Programming)
