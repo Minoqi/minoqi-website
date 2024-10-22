@@ -1,9 +1,9 @@
 ---
 title: Weighted RNG Tutorial in Godot 4
-published: 2024-10-23
+published: 2024-10-22
 description: ''
 image: ''
-tags: [Algorithm, Godot, Tutorial]
+tags: [Algorithm, Godot, Tutorial, Game Programming]
 category: 'Godot 4 Tutorial'
 draft: false 
 lang: ''
