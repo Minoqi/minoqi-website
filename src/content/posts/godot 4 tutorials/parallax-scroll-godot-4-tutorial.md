@@ -1,6 +1,6 @@
 ---
 title: Parallax Camera Tutorial for Godot 4
-published: 2024-10-30
+published: 2024-11-06
 description: 'Create a parallax camera controller in Godot 4 for both 2D and 3D'
 image: ''
 tags: [Tutorial, Godot, Game Programming]
