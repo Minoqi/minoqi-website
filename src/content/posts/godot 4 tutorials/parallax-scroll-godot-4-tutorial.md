@@ -4,8 +4,8 @@ published: 2024-11-06
 description: 'Create a parallax camera controller in Godot 4 for both 2D and 3D'
 image: ''
 tags: [Tutorial, Godot, Game Programming]
-category: 'Godot 4 Tutorial'
-draft: true 
+category: 'Godot 4 Tutorials'
+draft: false
 lang: ''
 ---
 Godot has a built in parallax system, but only for 2D games, so we want one that can work in both 2D and 3D. Plus, we have more customizable control over it!

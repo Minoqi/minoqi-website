@@ -4,7 +4,7 @@ published: 2024-10-22
 description: ''
 image: ''
 tags: [Algorithm, Godot, Tutorial, Game Programming]
-category: 'Godot 4 Tutorial'
+category: 'Godot 4 Tutorials'
 draft: false 
 lang: ''
 ---
