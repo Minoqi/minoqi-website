@@ -1,17 +1,22 @@
 ---
-title: "Advent of Code 2024 - Day 1"
+title: "Advent of Code 2024"
 published: 2024-12-01
-description: 'Advent of Code has officially started, let me show you how I completed Day 1 with C++'
+description: 'Advent of Code has officially started, and here are my solutions for it (incomplete)'
 tags: [C++, Tutorial]
 category: 'Advent of Code'
 draft: false 
 ---
 
-A new christmas season means a new `Advent of Code`! This was my first year actually participating in real time, and I thought I'd post a tutorial post on my solution for each day. So let's start off with day 1.
+A new christmas season means a new `Advent of Code`! This was my first year actually participating in real time, and I thought I'd post a tutorial post on my solution for each day. I'll be updating through the event as I finish more and more days!
+
+# Contents
+[Day 1](#day-1)
 
 ---
 
-# Part 1
+# Day 1
+
+## Part 1
 **Task:** You have a list with a number on the left and a number on the right. You need to sort each side in order from smallest to largest and then subtract both sides. Finally, add up all of the values.
 
 I first noticed that I would need to be able to handle this data across multiple functions, so for ease of use I created a struct to hold the 3 pieces of data I needed:
@@ -93,7 +98,7 @@ int calculateTotalDistance(FileData& _data) {
 
 ---
 
-# Part 2
+## Part 2
 **Task:** For part 2, we simply need to count up how many times each number on the left side appears on the right (duplicates numbers on the left count again). Then we just add it all together.
 
 For this I made a single function that does two things:

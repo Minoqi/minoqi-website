@@ -18,6 +18,7 @@ import { GithubCardComponent } from "./src/plugins/rehype-component-github-card.
 import {parseDirectiveNode} from "./src/plugins/remark-directive-rehype.js";
 import { remarkReadingTime } from "./src/plugins/remark-reading-time.mjs"
 import {remarkExcerpt} from "./src/plugins/remark-excerpt.js";
+import remarkToc from "remark-toc"
 
 const oklchToHex = (str) => {
   const DEFAULT_HUE = 250
@@ -133,4 +134,6 @@ export default defineConfig({
       },
     },
   },
+  
+  remarkPlugins: [remarkMath, remarkReadingTime, remarkDirective, parseDirectiveNode, [remarkToc, { maxDepth: 1 }]],
 })
