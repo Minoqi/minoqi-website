@@ -9,7 +9,7 @@ draft: false
 lang: ''
 ---
 
-![CastleDB Cleaner Promo Img](src/assets/images/castledb_cleaner/CastleDBCleanerPromoImg.png)
+![CastleDB Cleaner Promo Img](src/assets/images/castledb_cleaner/CastleDBToJsonComparison.png)
 
 Recently, I was on the hunt for a database system to handle large amount of game data outside of the engine. I knew I wanted it to use the JSON file system and wanted it to be in a grid format. Unforuntaley, my options were limited but I decided to go with [CastleDB](http://castledb.org/). 
 
