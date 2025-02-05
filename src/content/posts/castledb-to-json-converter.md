@@ -15,7 +15,7 @@ Recently, I was on the hunt for a database system to handle large amount of game
 
 All was going well until I took a look at the JSON file, everything was stored in an array! I tried [Depot](https://depot-editor.com/) (VS Code plugin) which does the same thing! It drove me crazy, as I fail to see why that's how it would be stored over a typical dictionary with ID format. If you don't use that method you loose a lot of the benefits of using a dictionary system. 
 
-But I thought "Wait... I could just convert it no?" and now here we are. I've made a quick python script that converts each sheet from `CastleDB` into it's own JSON file using a unique ID systme instead, thus making it much easier and nicer to use in my games. You can view it on my github [here](https://github.com/Minoqi/CastleDB-Cleaner/tree/main) or on my itchio [here](https://minoqi/itchi.io/castledb-cleaner).
+But I thought "Wait... I could just convert it no?" and now here we are. I've made a quick python script that converts each sheet from `CastleDB` into it's own JSON file using a unique ID system instead, thus making it much easier and nicer to use in my games. You can view it on my github [here](https://github.com/Minoqi/CastleDB-Cleaner/tree/main) or on my itchio [here](https://minoqi/itchi.io/castledb-cleaner).
 
 ---
 
