@@ -1,7 +1,7 @@
 ---
 title: VSCode with Godot 4 and Common Bugs Tutorial
 published: 2025-02-07
-description: 'Quick tutorial on how to connect VSCode with Godot and common bugs.'
+description: 'Quick tutorial on how to connect VSCode with Godot and common bugs'
 image: ''
 tags: [Godot, Tutorial]
 category: 'Godot 4 Tutorials'

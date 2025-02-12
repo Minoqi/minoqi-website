@@ -1,11 +1,11 @@
 ---
-title: The First 100+ Hour Game I Finished - Persona 5 Review
-published: 2025-01-03
-description: 'My new hyperfixation'
+title: Persona 5 Review - The First 100+ Hour Game I've Finished
+published: 2025-02-12
+description: 'Persona 5 - My new hyperfixation'
 image: ''
 tags: [Review]
 category: 'Game Review'
-draft: true
+draft: false
 lang: ''
 ---
 

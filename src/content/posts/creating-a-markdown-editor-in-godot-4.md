@@ -4,7 +4,7 @@ published: 2024-12-08
 description: 'Can you make a markdown editor in Godot? I think so and imma do it'
 image: ''
 tags: [Godot]
-category: 'Markdown Editor'
+category: ''
 draft: false 
 lang: ''
 ---

@@ -3,7 +3,7 @@ title: "Advent of Code 2024"
 published: 2024-12-01
 description: 'Advent of Code has officially started, and here are my solutions for it (incomplete)'
 tags: [C++, Tutorial]
-category: 'Advent of Code'
+category: ''
 draft: false 
 ---
 
