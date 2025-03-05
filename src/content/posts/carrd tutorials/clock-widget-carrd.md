@@ -3,7 +3,7 @@ title: Clock Widget Carrd Tutorial
 published: 2025-03-05
 description: 'Create a nice clock widget to show your local time/the viewers time'
 image: ''
-tags: ["tutorial"]
+tags: ["Tutorial"]
 category: 'Carrd'
 draft: false 
 lang: ''
