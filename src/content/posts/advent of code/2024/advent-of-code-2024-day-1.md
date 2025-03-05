@@ -4,7 +4,7 @@ published: 2024-12-01
 description: 'Advent of Code has officially started, and here are my solutions for it (incomplete)'
 tags: [C++, Tutorial]
 category: ''
-draft: false 
+draft: true 
 ---
 
 A new christmas season means a new `Advent of Code`! This was my first year actually participating in real time, and I thought I'd post a tutorial post on my solution for each day. I'll be updating through the event as I finish more and more days!
