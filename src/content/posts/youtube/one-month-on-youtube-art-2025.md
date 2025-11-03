@@ -2,7 +2,7 @@
 title: "One Month on Youtube with an Art Channel"
 published: 2025-08-09
 description: '1 month recap on my journey to become an art-tuber'
-image: ./ArtChannelMonth01.png
+image: ''
 tags: [Postmortem]
 category: 'YouTube'
 draft: false 
